@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import requests
 import urllib.parse
 import random
-import xpath_soup
 from lxml import etree
 import lxml.html
 from selenium import webdriver
@@ -12,8 +11,9 @@ from sys import stdout
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
+import argparse
 
-url = "https://xss-game.appspot.com/level1/frame?query="
+url = ""
 
 results = set()
 
@@ -57,9 +57,9 @@ def scan():
 	print("")
 
 	print("=" * 60)
-	print("Possible XSS Vulnerabilities:")
+	print("Possible XSS Vulnerabilities:\n")
 	for result in results:
-		print("\t" + result)
+		print(result)
 
 def charToHex(c):
 	return "\\x" + format(ord(c), "x")
@@ -122,4 +122,18 @@ def check_headers():
 	else:
 		print(bcolors.OKGREEN + "OK" + bcolors.ENDC + "\tFrom-Header mot found in html")
 
+
+# Create the parser
+my_parser = argparse.ArgumentParser(description='Scan a website for xss by instrumenting seleium browsers.')
+
+# Add the arguments
+my_parser.add_argument('URL',
+                       metavar='url',
+                       type=str,
+                       help='URL to the parameter')
+
+# Execute the parse_args() method
+args = my_parser.parse_args()
+
+URL = args.URL
 scan()
