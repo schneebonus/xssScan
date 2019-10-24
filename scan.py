@@ -33,33 +33,35 @@ def inject(injection, browser):
 		WebDriverWait(browser, 3).until(EC.alert_is_present(), 'Timed out waiting for alerts to appear')
 		alert = browser.switch_to.alert
 		alert.accept()
-		print(bcolors.FAIL + "XSS" + " for " + injection + bcolors.ENDC)
+		print(bcolors.FAIL + "XSS" + " " + injection + bcolors.ENDC)
 		results.add(injection)
 	except TimeoutException:
-		print(bcolors.OKGREEN + "OK" + bcolors.ENDC + " for "+ injection)
+		print(bcolors.OKGREEN + "OK" + bcolors.ENDC + " "+ injection)
 
 def scan():
-	browser = webdriver.Firefox()
-	browser.get(url)
-	print("Scanning: " + url)
-	print("=" * 60)
-	check_headers()
-
-	file = open("xss.txt","r")
-	print("=" * 60)
-	print("Testing predefined patterns: xss.txt + mutations\n")
-	for injection in file:
-		if injection != "":
-			injection_transformations = generate_transformations(injection[:-1])
-			for xss in injection_transformations:
-				inject(xss, browser)
-	browser.quit()
-	print("")
-
-	print("=" * 60)
-	print("Possible XSS Vulnerabilities:\n")
-	for result in results:
-		print(result)
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--disable-xss-auditor")
+    chrome_options.add_argument("--disable-web-security")
+    chrome_options.add_argument("--no-sandbox")
+    browser = webdriver.Chrome(desired_capabilities=chrome_options.to_capabilities())
+    browser.get(url)
+    print("Scanning: " + url)
+    print("=" * 60)
+    check_headers()
+    file = open("xss.txt","r")
+    print("=" * 60)
+    print("Testing predefined patterns: xss.txt + mutations\n")
+    for injection in file:
+        if injection != "":
+            injection_transformations = generate_transformations(injection[:-1])
+            for xss in injection_transformations:
+                inject(xss, browser)
+    browser.quit()
+    print("")
+    print("=" * 60)
+    print("Possible XSS Vulnerabilities:\n")
+    for result in results:
+        print(result)
 
 def charToHex(c):
 	return "\\x" + format(ord(c), "x")

