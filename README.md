@@ -19,8 +19,12 @@ Tested on debian 10 but every distro should offer selenium.
 
 Just run:
 
+```
 python3 scan.py [url]
+```
 
 Example:
 
+```
 python3 scan.py https://xss-game.appspot.com/level1/frame?query=
+```
