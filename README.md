@@ -2,6 +2,8 @@
 
 This project develops an XSS bruteforcer. An added value of this project compared to existing bruteforcers is the use of a Firefox browser controlled by Selenium.
 
+![screenshot](https://raw.githubusercontent.com/schneebonus/xssScan/master/screenshots/xssScan-example.png)
+
 Since this project is a new hobby project without a roadmap, the capabilities are still limited and it is not sure whether an active further development will take place.
 
 # Install
