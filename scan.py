@@ -135,5 +135,5 @@ my_parser.add_argument('URL',
 # Execute the parse_args() method
 args = my_parser.parse_args()
 
-URL = args.URL
+url = args.URL
 scan()
