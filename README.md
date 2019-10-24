@@ -1,6 +1,6 @@
 # SeleniumXssBruteforcer
 
-This project develops an XSS Bruteforcer. An added value of this project compared to existing Bruteforcers is the use of a Firefox browser controlled by Selenium.
+This project develops an XSS bruteforcer. An added value of this project compared to existing bruteforcers is the use of a Firefox browser controlled by Selenium.
 
 Since this project is a new hobby project without a roadmap, the capabilities are still limited and it is not sure whether an active further development will take place.
 
@@ -17,7 +17,9 @@ Tested on debian 10 but every distro should offer selenium.
 
 # Use
 
-Just run:
+XSS payloads are stored in xss.txt. Each line represents one payload.
+
+To run a scan:
 
 ```
 python3 scan.py [url]
