@@ -11,6 +11,7 @@ Tested on debian 10 but every distro should offer selenium.
 - Install python3 and python3-pip ( sudo apt install python3 python3-pip )
 - Install firefox or firefox-esr ( sudo apt install firefox-esr )
 - Install selenium ( pip3 install selenium --user )
+- Install pip3 requirenments ( bs4 and lxml )
 - Download the latest gecko driver from https://github.com/mozilla/geckodriver/releases and extract it to /usr/local/bin/geckodriver
 - set owner of /usr/local/bin/geckodriver to root ( sudo chown root:root /usr/local/bin/geckodriver )
 - set permissions for /usr/local/bin/geckodriver to 755 ( sudo chmod 755 /usr/local/bin/geckodriver )
